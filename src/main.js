@@ -1,4 +1,3 @@
-import { Input } from './../js/input.js';
 import { Request } from './../js/request.js';
 import './styles.css';
 import $ from 'jquery';
@@ -6,28 +5,34 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 $(document).ready(function() {
-
-  $("form#name-input").submit(function(event) {
+  $("#name-input").click(function(event) {
     let name = $('#name').val();
     $('#name').val("");
-    name.findByName(name);
-      success: function(response) {
+    $.ajax({
+    url: `https://api.betterdoctor.com/2016-03-01/doctors?first_name=Mary&last_name=Smith&location=or-portland&user_location=45.5231%2C%20122.6765&skip=0&limit=10&user_key=efae18ff8264be586e0528ee22d4acec`,
+    type: 'GET',
+    data: {
+      format: 'json'
+    },
+      success: function(response){
         $('.first-name').text(`${response.main.first_name}`);
         $('.last-name').text(`${response.main.last_name}`);
         $('.address').text(`${response.main.address}`);
         $('.phone').text(`${response.main.phone}`);
         $('.website').text(`${response.main.website}`);
       },
-      fail: function() {
+      error: function() {
         $('#errors').text("Looks like something went wrong! Please try again later.")
       }
     });
   });
 
-  $("form#issue-input").submit(function(event) {
-    let issue = $('#issue').val();
-    $('#issue').val("");
-    success: function(response) {
 
-  });
+  // $("#issue-input").click(function() {
+  //   let issue = $('#issue').val();
+  //   $('#issue').val("");
+  //   success: function(response) {
+  //
+  //   });
+  // });
 });
