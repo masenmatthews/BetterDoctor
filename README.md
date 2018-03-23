@@ -1,22 +1,18 @@
 # _Doctor Lookup_
 
-#### _, {March 23, 2018}_
+#### _An application that users the BetterDoctor API to assist users in finding a doctor that can fit their needs._, {March 23, 2018}_
 
 #### By _Masen Matthews_
 
 ## Description
-  __
+  _This application allows the user to enter a medical issue or the name of a doctor and receive results based upon their search criteria. Information is returned using the BetterDoctor API. JavaScript is used to display the website, return fields, etc._
 
 ## Specifications / User Expectations
 1. User can enter a medical issue to receive a list of doctors in Portland that fit the respective search query
 2. User can enter a name to receive a list of doctors in Portland that fit the respective search query
 3. If the query response includes any doctors, the user can view each doctor's full name, address, phone number, and website. They can also see if the doctor is accepting new patients.
 4. Application returns an error message if the API call returns an error.
-5. If not doctors fit the search criteria, the application notifies the user that their search criteria didn't return any relevant results. 
-6.
-7.
-8.
-9.
+5. If not doctors fit the search criteria, the application notifies the user that their search criteria didn't return any relevant results.
 
 ## Setup/Installation Requirements
 
