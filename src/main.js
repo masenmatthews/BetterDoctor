@@ -9,7 +9,7 @@ $(document).ready(function() {
     let name = $('#name').val();
     $('#name').val("");
     $.ajax({
-    url: `https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&location=or-portland&user_location=45.5231%2C%20122.6765&skip=0&limit=25&user_key=efae18ff8264be586e0528ee22d4acec`,
+    url: `https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&location=or-portland&user_location=45.5231%2C%20122.6765&skip=0&limit=5&user_key=efae18ff8264be586e0528ee22d4acec`,
     type: 'GET',
     data: {
       format: 'json'
