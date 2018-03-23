@@ -6,14 +6,14 @@
 //
 //   findByName(){
 //     let name = this.name;
-//     const key = process.exports.apiKey
+//     const apiKey = process.exports.apiKey
 //
 //   }
 //
 //
 //   findByIssue(){
 //     let issue = this.issue;
-//     const key = process.exports.apiKey
+//     const apiKey = process.exports.apiKey
 //
 //
 //   }
