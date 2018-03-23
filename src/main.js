@@ -5,7 +5,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 $(document).ready(function() {
-  $("#name-input").click(function() {
+  $("#name-submit").click(function() {
     let name = $('#name').val();
     $('#name').val("");
     $.ajax({
