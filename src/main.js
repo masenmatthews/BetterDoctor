@@ -10,12 +10,18 @@ $(document).ready(function() {
   $("form#name-input").submit(function(event) {
     let name = $('#name').val();
     $('#name').val("");
-    success: function(response) {
-      $('.first-name').text(`${response.main.first_name}`);
-      $('.last-name').text(`${response.main.last_name}`);
-      $('.address').text(`${response.main.address}`);
-      $('.phone').text(`${response.main.phone}`);
-      $('.website').text(`${response.main.website}`);
+    name.findByName(name);
+      success: function(response) {
+        $('.first-name').text(`${response.main.first_name}`);
+        $('.last-name').text(`${response.main.last_name}`);
+        $('.address').text(`${response.main.address}`);
+        $('.phone').text(`${response.main.phone}`);
+        $('.website').text(`${response.main.website}`);
+      },
+      fail: function() {
+        $('#errors').text("Looks like something went wrong! Please try again later.")
+      }
+    });
   });
 
   $("form#issue-input").submit(function(event) {
