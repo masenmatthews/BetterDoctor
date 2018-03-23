@@ -28,11 +28,11 @@ $(document).ready(function() {
   });
 
 
-  // $("#issue-input").click(function() {
-  //   let issue = $('#issue').val();
-  //   $('#issue').val("");
-  //   success: function(response) {
-  //
-  //   });
-  // });
+  $("#issue-input").click(function() {
+    let issue = $('#issue').val();
+    $('#issue').val("");
+    success: function(response) {
+
+    });
+  });
 });
