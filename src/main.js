@@ -11,11 +11,17 @@ $(document).ready(function() {
     let name = $('#name').val();
     $('#name').val("");
     success: function(response) {
-
+      $('.first-name').text(`${response.main.first_name}`);
+      $('.last-name').text(`${response.main.last_name}`);
+      $('.address').text(`${response.main.address}`);
+      $('.phone').text(`${response.main.phone}`);
+      $('.website').text(`${response.main.website}`);
   });
+
   $("form#issue-input").submit(function(event) {
     let issue = $('#issue').val();
     $('#issue').val("");
+    success: function(response) {
 
   });
 });
