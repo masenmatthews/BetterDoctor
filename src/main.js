@@ -16,11 +16,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
       format: 'json'
     },
     success: function(response) {
-      $('.first-name').text(`${response.main.first_name}`);
-      $('.last-name').text(`${response.main.last_name}`);
-      $('.address').text(`${response.main.address}`);
-      $('.phone').text(`${response.main.phone}`);
-      $('.website').text(`${response.main.website}`);
+      for (let i = 0; i < response.data.length; i++) {
+      $('#first-name').text(`${response.data[i].profile.first_name}`);
+      $('#last-name').text(`${response.data[i].profile.last_name}`);
+
+      $('#address').text(`${response.data[i].visit_address.street}`);
+      $('#phone').text(`${response.data[i].phone}`);
+      $('#website').text(`${response.data[i].website}`);
+      }
     },
     error: function() {
       $('#errors').text("Looks like something went wrong! Please try again later.")
