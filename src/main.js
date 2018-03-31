@@ -17,12 +17,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
     },
     success: function(response) {
       for (let i = 0; i < response.data.length; i++) {
-      $('#first-name').text(`${response.data[i].profile.first_name}`);
-      $('#last-name').text(`${response.data[i].profile.last_name}`);
-
-      $('#address').text(`${response.data[i].visit_address.street}`);
-      $('#phone').text(`${response.data[i].phone}`);
-      $('#website').text(`${response.data[i].website}`);
+        let doctorName = response.data[i].profile.first_name + ' ' + response.data[i].profile.last_name;
+        let addressLineOne = response.data[i].practices[0].visit_address.street;
+        let addressLineTwo = response.data[i].practices[0].visit_address.city + " " + response.data[i].practices[0].visit_address.state + " " + response.data[i].practices[0].visit_address.zip;
+        $('#doctorName').text(`${doctorName}`);
+        $('#addressOne').text(`${addressLineOne}`);
+        $('#addressTwo').text(`${addressLineTwo}`);
+        // $('#phone').text(`${response.data[i].practices[0].phones.number}`);
+      // $('#website').text(`${response.data[i].website}`);
       }
     },
     error: function() {
