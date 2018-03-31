@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // $(document).ready(function() {
    $("#name-submit").submit(function(event) {
-     alert("Hello");
      event.preventDefault();
     let name = $('#name').val();
     $.ajax({
@@ -20,11 +19,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
         let doctorName = response.data[i].profile.first_name + ' ' + response.data[i].profile.last_name;
         let addressLineOne = response.data[i].practices[0].visit_address.street;
         let addressLineTwo = response.data[i].practices[0].visit_address.city + " " + response.data[i].practices[0].visit_address.state + " " + response.data[i].practices[0].visit_address.zip;
+        let phoneNumber = response.data[i].practices[0].phones[0].number;
+        let doctorWebsite = response.data[i].practices[0].website;
         $('#doctorName').text(`${doctorName}`);
         $('#addressOne').text(`${addressLineOne}`);
         $('#addressTwo').text(`${addressLineTwo}`);
-        // $('#phone').text(`${response.data[i].practices[0].phones.number}`);
-      // $('#website').text(`${response.data[i].website}`);
+        $('#phone').text(`${phoneNumber}`);
+        $('#website').text(`${doctorWebsite}`);
       }
     },
     error: function() {
