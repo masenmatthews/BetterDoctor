@@ -11,7 +11,7 @@ document.ready(function() {
     event.preventDefault();
     let name = $('#name').val();
     let request = new Request;
-    request.doctorLookup(name, searchRequest);
+    request.doctorLookup(name, success);
     let success = function(response) {
       for (let i = 0; i < response.data.length; i++) {
         let doctorName = response.data[i].profile.first_name + ' ' + response.data[i].profile.last_name;
@@ -35,7 +35,7 @@ document.ready(function() {
    event.preventDefault();
    let symptom = $('#symptom').val();
    let request = new Request;
-   request.symptomLookup(symptom, searchRequest);
+   request.symptomLookup(symptom, success);
    let success = function(response) {
      for (let i = 0; i < response.data.length; i++) {
        let doctorName = response.data[i].profile.first_name + ' ' + response.data[i].profile.last_name;
