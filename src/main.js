@@ -4,15 +4,15 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-document.ready(function() {
-  let request = new Request;
+
+
 
   $("#name-submit").submit(function(event) {
     event.preventDefault();
     let name = $('#name').val();
-    let request = new Request;
+    let request = new Request();
     request.doctorLookup(name, success);
-    let success = function(response) {
+    let success = response => {
       for (let i = 0; i < response.data.length; i++) {
         let doctorName = response.data[i].profile.first_name + ' ' + response.data[i].profile.last_name;
         let addressLineOne = response.data[i].practices[0].visit_address.street;
@@ -27,6 +27,9 @@ document.ready(function() {
       }
     }
   });
+
+
+
     // error: function() {
     //   $('#errors').text("Looks like something went wrong! Please try again later.")
     // }
@@ -34,9 +37,9 @@ document.ready(function() {
   $("#symptom-submit").submit(function(event) {
    event.preventDefault();
    let symptom = $('#symptom').val();
-   let request = new Request;
+   let request = new Request();
    request.symptomLookup(symptom, success);
-   let success = function(response) {
+    let success = response => {
      for (let i = 0; i < response.data.length; i++) {
        let doctorName = response.data[i].profile.first_name + ' ' + response.data[i].profile.last_name;
        let addressLineOne = response.data[i].practices[0].visit_address.street;
@@ -55,9 +58,16 @@ document.ready(function() {
        }
      }
    });
- });
+
+
    // },
    // error: function() {
    //   $('#errors').text("Looks like something went wrong! Please try again later.")
    // }
    // });
+
+
+   $(document).ready(() => {
+     
+
+});
