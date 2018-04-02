@@ -4,8 +4,6 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-    // let request = new Request();
-    // request.doctorLookup(name, success);
     let doctorLookupResult = response => {
       for (let i = 0; i < response.data.length; i++) {
         let doctorName = response.data[i].profile.first_name + ' ' + response.data[i].profile.last_name;
@@ -21,11 +19,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
       }
     }
 
-    // error: function() {
-    //   $('#errors').text("Looks like something went wrong! Please try again later.")
-    // }
-
-   // request.symptomLookup(symptom, success);
     let symptomLookupResult = response => {
      for (let i = 0; i < response.data.length; i++) {
        let doctorName = response.data[i].profile.first_name + ' ' + response.data[i].profile.last_name;
@@ -42,28 +35,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
        $('#addressTwo').text(`${addressLineTwo}`);
        $('#phone').text(`${phoneNumber}`);
        $('#website').text(`${doctorWebsite}`);
-       }
      }
-
-
-   // },
-   // error: function() {
-   //   $('#errors').text("Looks like something went wrong! Please try again later.")
-   // }
-   // });
-
+   }
 
    $(document).ready(() => {
      let request = new Request;
      $("#name-submit").submit(function(event) {
-     let name = $('#name').val();
-     event.preventDefault();
-     request.doctorLookup(name, doctorLookupResult)
-   })
+       let name = $('#name').val();
+       event.preventDefault();
+       request.doctorLookup(name, doctorLookupResult)
+     })
      $("#symptom-submit").submit(function(event) {
-     let symptom = $('#symptom').val();
-     event.preventDefault();
-     request.symptomLookup(symptom, symptomLookupResult);
-   })
-
-});
+       let symptom = $('#symptom').val();
+       event.preventDefault();
+       request.symptomLookup(symptom, symptomLookupResult);
+     })
+  });
