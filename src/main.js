@@ -25,12 +25,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
         if (doctorWebsite === undefined) {
           $('#website').text('No website listed');
         } else {
-          $('#website').text(doctorWebsite);
+          $('#website').text(`${doctorWebsite}`);
         }
           $('#addressOne').text(`${addressLineOne}`);
           $('#addressTwo').text(`${addressLineTwo}`);
           $('#phone').text(`${phoneNumber}`);
-          $('#website').text(`${doctorWebsite}`);
         }
       }
 
