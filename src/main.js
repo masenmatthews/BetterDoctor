@@ -35,13 +35,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
     let symptomLookupResult = response => {
      for (let i = 0; i < response.data.length; i++) {
-       let speciality = response.data[i].specilaity;
-       let practiceName = response.data[i].name;
+       let doctorName = response.data[i].profile.first_name + ' ' + response.data[i].profile.last_name;
+       let practiceName = response.data[i].specialties[i].name;
+       let description = response.data[i].specialties[i].description;
        let addressLineOne = response.data[i].practices[0].visit_address.street;
        let addressLineTwo = response.data[i].practices[0].visit_address.city + " " + response.data[i].practices[0].visit_address.state + " " + response.data[i].practices[0].visit_address.zip;
        let phoneNumber = response.data[i].practices[0].phones[0].number;
        let doctorWebsite = response.data[i].practices[0].website;
        let acceptsNewPatients = response.data[i].practices[0].accepts_new_patients;
+       $('#doctorName').text(`${doctorName}`);
+       $('#addressOne').text(`${addressLineOne}`);
+       $('#addressTwo').text(`${addressLineTwo}`);
+       $('#phone').text(`${phoneNumber}`);
+       $('#practice').text(`${practiceName}`);
+       $('#description').text(`${description}`);
        if (acceptsNewPatients === true) {
          $('#acceptsPatients').text('Currently accepting new patients');
        } else {
@@ -52,11 +59,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
        } else {
          $('#website').text(`${doctorWebsite}`);
        }
-       $('#descriptions').text(`${speciality}`);
-       $('#practice-name').text(`${practiceName}`);
-       $('#addressOne').text(`${addressLineOne}`);
-       $('#addressTwo').text(`${addressLineTwo}`);
-       $('#phone').text(`${phoneNumber}`);
      }
    }
 
